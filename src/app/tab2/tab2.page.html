@@ -12,6 +12,20 @@
       <ion-title size="large">Atendente</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-content class="ionCardContent">
+      <ion-header class="ionHeader">
+        Guichê 1
+      </ion-header>
+      <ion-button class="ionButton" expand="block"  (click)="senhasService.chamarSenha('Guichê 1')">Chamar Senha</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content class="ionCardContent">
+      <ion-header class="ionHeader">
+        Guichê 2
+      </ion-header>
+      <ion-button class="ionButton" expand="block" (click)="senhasService.chamarSenha('Guichê 2')">Chamar Senha</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

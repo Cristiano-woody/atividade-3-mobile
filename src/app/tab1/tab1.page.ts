@@ -7,7 +7,6 @@ import { SenhasService } from '../services/senhas.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  inputNovaSenha: string = '';
   constructor(public senhasService: SenhasService) {}
 
 }
