@@ -9,13 +9,15 @@ export class SenhasService {
   public senhasPrior: number = 0;
   public senhasExame: number = 0;
   public senhasTotal: number = 0;
-
+  
   public inputNovaSenha: string = ''
   public senhasArray: { [key: string]: string[] } = {
     ['SP']: [],
     ['SE']: [],
     ['SG']: [],
-  };
+  }
+  public senhasarra: string[] = [];
+
   public senhasChamadas: {  
     tipoSenha: string;
     guiche: string;
@@ -48,7 +50,7 @@ export class SenhasService {
       this.pegarStrigData() +
         '-' +
         tipoSenha +
-        (this.senhasArray['SG'].length + 1).toString().padStart(2, '0');
+        (this.senhasGeral + 1).toString().padStart(2, '0');
       this.senhasArray['SG'].push(this.inputNovaSenha);
     } 
     else if (tipoSenha == 'SP') {
@@ -60,7 +62,7 @@ export class SenhasService {
       this.pegarStrigData() +
         '-' +
         tipoSenha +
-        (this.senhasArray['SP'].length + 1).toString().padStart(2, '0');
+        (this.senhasPrior + 1).toString().padStart(2, '0');
       this.senhasArray['SP'].push(this.inputNovaSenha);
     }
     else if (tipoSenha == 'SE') {
@@ -72,7 +74,7 @@ export class SenhasService {
       this.pegarStrigData() +
         '-' +
         tipoSenha +
-        (this.senhasArray['SE'].length + 1).toString().padStart(2, '0');
+        (this.senhasExame + 1).toString().padStart(2, '0');
       this.senhasArray['SE'].push(this.inputNovaSenha);
     }
     console.log(this.senhasArray)
