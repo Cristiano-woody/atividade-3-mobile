@@ -47,7 +47,7 @@ export class SenhasService {
         this.senhasArray['SG'] = [];
       }
       this.inputNovaSenha = 
-      this.pegarStrigData() +
+      this.pegarData() +
         '-' +
         tipoSenha +
         (this.senhasGeral + 1).toString().padStart(2, '0');
@@ -59,7 +59,7 @@ export class SenhasService {
         this.senhasArray['SP'] = [];
       }
       this.inputNovaSenha = 
-      this.pegarStrigData() +
+      this.pegarData() +
         '-' +
         tipoSenha +
         (this.senhasPrior + 1).toString().padStart(2, '0');
@@ -71,7 +71,7 @@ export class SenhasService {
         this.senhasArray['SE'] = [];
       }
       this.inputNovaSenha = 
-      this.pegarStrigData() +
+      this.pegarData() +
         '-' +
         tipoSenha +
         (this.senhasExame + 1).toString().padStart(2, '0');
@@ -80,7 +80,7 @@ export class SenhasService {
     console.log(this.senhasArray)
   }
 
-  pegarStrigData(format?: boolean): string {
+  pegarData(format?: boolean): string {
     if(format) {
       const stringDate =       
       new Date().getDay().toString().padStart(2, '0') +
@@ -91,8 +91,8 @@ export class SenhasService {
       return stringDate
     }
     const stringDate =       
-    new Date().getDay().toString().padStart(2, '0') +
-    new Date().getMonth().toString().padStart(2, '0') +
+    new Date().getDate().toString().padStart(2, '0') +
+    (new Date().getMonth() + 1).toString().padStart(2, '0') +
     new Date().getFullYear().toString().substring(2,4)
     return stringDate
   }
@@ -103,7 +103,7 @@ export class SenhasService {
         tipoSenha: 'SP',
         guiche: guiche,
         senha: proxSenhaSP,
-        data: this.pegarStrigData(true)
+        data: this.pegarData(true)
       })
   }
 
@@ -113,7 +113,7 @@ export class SenhasService {
       tipoSenha: 'SE',
       guiche: guiche,
       senha: proxSenhaSE,
-      data: this.pegarStrigData(true)
+      data: this.pegarData(true)
     })
   }
 
@@ -123,7 +123,7 @@ export class SenhasService {
           tipoSenha: 'SG',
           guiche: guiche,
           senha: proxSenhaSG,
-          data: this.pegarStrigData(true)
+          data: this.pegarData(true)
         })
   }
 
